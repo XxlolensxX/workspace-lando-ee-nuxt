@@ -1,0 +1,31 @@
+name: front
+proxy:
+  node:
+    - front.lndo.site
+services:
+  node:
+    type: node:10
+    command: "npm dev --hostname 0.0.0.0 --port 80"
+    install_dependencies_as_me:
+      - npm install
+tooling: 
+  npm:
+    service: node
+  node: 
+    service: node
+  front:
+    service: node
+    description: install front
+    cmd: /app/cmd/front.sh
+    dir: /app/front
+    user: root
+    level: app
+  start-dev:
+    service: node
+    description: start vue proyect
+    cmd: /app/cmd/start-dev.sh
+    dir: /app/front
+    user: root
+    level: app
+  vue:
+    service: node

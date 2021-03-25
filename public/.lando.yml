@@ -1,0 +1,20 @@
+name: back
+recipe: laravel
+
+proxy:
+  node:
+    - back.lndo.site
+
+# See: https://docs.lando.dev/config/lamp.html
+config:
+  via: apache
+  php: '7.4'
+  webroot: public
+  database: mysql
+services:
+  database:
+    portforward: 3318
+    creds:
+      user: custompls
+      password: custompls
+      database: custompls

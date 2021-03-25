@@ -1,0 +1,14 @@
+<?php
+header("Content-Type:application/json");
+?>
+{
+	entries: [
+    {exp:channel:entries channel="blog" dynamic="no"}
+        {
+            "image": "{blog_image}{blog_image:image}{/blog_image}",
+            "title": "{title}"
+        }{if count != total_results},{/if}
+    {/exp:channel:entries}
+    ]
+	
+}
